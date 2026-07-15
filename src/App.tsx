@@ -31,7 +31,7 @@ export const App = () => {
     setUsers(users.map(user => 
       user.id === id ? { id, ...updatedUser } : user
     ))
-  }
+
 
 
   return (

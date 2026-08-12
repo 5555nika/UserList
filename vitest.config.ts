@@ -10,6 +10,6 @@ export default defineConfig({
     // optional: clear mocks between tests
     clearMocks: true,
     // optional: set a timeout (default 5000ms) – increase if needed
-    // testTimeout: 10000,
+    setupFiles: './src/setupTests.ts',
   },
 });

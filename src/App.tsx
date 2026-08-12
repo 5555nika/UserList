@@ -19,8 +19,8 @@ export const App = () => {
   ])
 
   const add = (newUser: Omit<IUser, 'id'>) => {
-    const id = users.length > 0 ? users[users.length - 1].id + 1 : 1
-    setUsers(prev => ([...prev, { id, ...newUser}]))
+    const id = users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 1
+    setUsers(prev => [{ id, ...newUser }, ...prev]);
   }
   
   const del = (id: number) => {
@@ -28,9 +28,10 @@ export const App = () => {
   }
   
   const edit = (id: number, updatedUser: Omit<IUser, 'id'>) => {
-    setUsers(users.map(user => 
+    setUsers(prev => prev.map(user => 
       user.id === id ? { id, ...updatedUser } : user
     ))
+  }
 
 
 
@@ -50,3 +51,4 @@ export const App = () => {
     </div>
   )
 }
+export default App;

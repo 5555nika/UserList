@@ -12,6 +12,7 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
         name: '', 
         lastname: '', 
         age: '', 
+        hobby: '',
         bio: '', 
         isHappy: false
     })
@@ -27,6 +28,7 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
                 name: '', 
                 lastname: '', 
                 age: '', 
+                hobby: '',
                 bio: '', 
                 isHappy: false
             })
@@ -41,25 +43,33 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
     return (
         <form onSubmit={handleSubmit} className="form-container">
             <input type="text"
-            placeholder="Enter your name"
+            placeholder="enter name..."
             name='name'
             value={formData.name}
             onChange={handleChange}   />
 
             <input type="text"
-            placeholder="Enter your lastname"
+            placeholder="enter lastname..."
             name='lastname'
             value={formData.lastname}
             onChange={handleChange}   />
 
             <input type="number"
-            placeholder="Enter your age"
+            placeholder="enter age..."
             name='age'
             value={formData.age}
             onChange={handleChange}   />
 
             <input type="text"
-            placeholder="Enter your bio"
+            placeholder="enter hobby..."
+            name='hobby'
+            value={formData.hobby}
+            onChange={handleChange}   />
+            
+
+
+            <input type="text"
+            placeholder="enter bio..."
             name='bio'
             value={formData.bio}
             onChange={handleChange}   />

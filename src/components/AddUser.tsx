@@ -12,7 +12,6 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
         name: '', 
         lastname: '', 
         age: '', 
-        hobby: '',
         bio: '', 
         isHappy: false
     })
@@ -28,7 +27,6 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
                 name: '', 
                 lastname: '', 
                 age: '', 
-                hobby: '',
                 bio: '', 
                 isHappy: false
             })
@@ -59,15 +57,7 @@ export const AddUser = ({ onAdd, user }: IAdduserProps ) => {
             name='age'
             value={formData.age}
             onChange={handleChange}   />
-
-            <input type="text"
-            placeholder="enter hobby..."
-            name='hobby'
-            value={formData.hobby}
-            onChange={handleChange}   />
             
-
-
             <input type="text"
             placeholder="enter bio..."
             name='bio'

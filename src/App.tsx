@@ -12,6 +12,7 @@ export interface IUser {
   bio: string,
   isHappy: boolean
 }
+
 export const App = () => {
 
   const [users, setUsers] = useState<IUser[]>([

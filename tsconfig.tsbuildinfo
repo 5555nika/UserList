@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/declarations.d.ts","./src/main.tsx","./src/assets/videos.ts","./src/components/adduser.tsx","./src/components/header.tsx","./src/components/user.tsx","./src/components/users.tsx"],"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/declarations.d.ts","./src/main.tsx","./src/setuptests.ts","./src/assets/videos.ts","./src/components/adduser.tsx","./src/components/header.tsx","./src/components/user.tsx","./src/components/users.tsx","./src/tests/app.test.tsx"],"version":"5.9.3"}

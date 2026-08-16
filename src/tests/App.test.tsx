@@ -44,7 +44,7 @@ describe('App component', () => {
     await user.click(screen.getByRole('button', { name: /add/i }));
 
     // Find the delete button via its accessible name or aria-label. Fallback to class selector if necessary.
-    const deleteBtn = screen.getAllByRole('button').find((btn) => btn.classList.contains('btn__danger'));
+    const deleteBtn = screen.getAllByRole('button').find((btn) => btn.classList.contains('icon-delete'));
     if (deleteBtn) {
         await user.click(deleteBtn);
     }
@@ -61,12 +61,24 @@ describe('App component', () => {
     await user.type(screen.getByPlaceholderText('enter bio...'), 'Music');
     await user.click(screen.getByRole('button', { name: /add/i }));
 
-    // Find the edit/toggle button (success style) and click it
-    const editBtn = screen.getAllByRole('button').find((btn) => btn.classList.contains('btn__success'));
+    
+    // Кликаем по кнопке редактирования
+    const editBtn = screen.getAllByRole('button').find((btn) => btn.classList.contains('icon-edit'));
     if (editBtn) {
         await user.click(editBtn);
     }
-    const userSpan = screen.getByText('Cara Smile');
-    expect(userSpan).toHaveClass('text--done');
+       // 3. Находим поле ввода имени (в нем уже написано "Cara")
+    const nameInput = screen.getAllByPlaceholderText('enter name...')[0];
+    
+    // Очищаем старое имя и вводим новое ("Mila")
+    await user.clear(nameInput);
+    await user.type(nameInput, 'Mila');
+    // 4. Отправляем форму кнопкой "Edit"
+    await user.click(screen.getByRole('button', { name: /edit/i }));
+    // 5. Проверяем, что данные успешно обновились на экране
+    expect(screen.getByText('Mila Smile')).toBeInTheDocument();
+    
+    // Проверяем, что старого имени "Cara Smile" больше нет
+    expect(screen.queryByText('Cara Smile')).not.toBeInTheDocument();
     });
 });
